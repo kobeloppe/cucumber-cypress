@@ -52,5 +52,4 @@ Given(/^The login page of the health dashboard$/, () => {
 Given(/^I log in with email address "([^"]*)" and password "([^"]*)"$/, (email: string, password: string) => {
     cy.get("#email").type(email);
     cy.get("#password").type(password);
-    cy.get("button.confirm").click();
 });

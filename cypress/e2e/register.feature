@@ -11,6 +11,7 @@ Feature: Register a patient
   Scenario: The patient can add medical information in order to receive a prediction
     Given The login page of the health dashboard
     And I log in with email address "kobe@mail.com" and password "azerty"
+    And I confirm the form
     Then I will be forwarded to the main page of the health dashboard
     And I am authenticated
     And I want to edit my medical information
