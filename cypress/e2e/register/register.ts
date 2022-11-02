@@ -2,6 +2,7 @@ import {Given, Then, When} from "@badeball/cypress-cucumber-preprocessor";
 
 Given("The register page of the health dashboard", () => {
     cy.visit("http://localhost:4200/#/register");
+    cy.contains("div.text-black", "Registreren");
 });
 
 When(/^I register a new patient with email address "([^"]*)" and password "([^"]*)"$/, (email: string, password: string) => {
@@ -31,4 +32,8 @@ Then(/^I get an error that specifies that the given email address is incorrect$/
 
 Then(/^I cannot confirm the form$/, () => {
     cy.get("button.confirm").should("be.disabled");
+});
+
+Then(/^I get an error that specifies that the given password is too short$/, () => {
+    cy.contains(".input-error", "Vul een geldig wachtwoord in.");
 });
