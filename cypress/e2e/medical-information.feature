@@ -2,7 +2,7 @@
 Functionaliteit: Medische informatie
 
   Achtergrond:
-    Gegeven De loginpagina van het gezondheidsdashboard
+    Gegeven de loginpagina van het gezondheidsdashboard
     En ik log in met mailadres "kobe@mail.com" en wachtwoord "azerty"
     En ik bevestig het formulier
     En ik word doorwezen naar de hoofdpagina van het gezondheidsdashboard
@@ -45,18 +45,21 @@ Functionaliteit: Medische informatie
     En de berekende leeftijd is "71" jaar oud
     En de body mass index is "50.8"
 
-  Scenario: De patiënt kan succesvol ziektes toevoegen
+  Scenario: De patiënt kan succesvol een ziekte toevoegen
     Wanneer ik een ziekte wil toevoegen
     En ik ga naar het formulier waar ik ziektes kan toevoegen
     En ik selecteer "Astma" als een ziekte
     En ik bevestig het formulier
     Dan ik word doorwezen naar de hoofdpagina van het gezondheidsdashboard
     En het berekende hospitalisatierisico wordt weergegeven als "Hoog"
-    En het dashboard toont de volgende melding: "Je COVID-hospitalisatierisico met bijhorende toelichting is succesvol berekend."
-    En de berekende leeftijd is "71" jaar oud
-    En de body mass index is "50.8"
+    En de ziekte "Astma" is zichtbaar op de hoofdpagina van het gezondheidsdashboard
+
+  Scenario: De patiënt kan succesvol een ziekte verwijderen
+    Wanneer ik op het kruisje klik naast de naam van de ziekte
+    Dan geen enkele ziekte is nog zichtbaar op de hoofdpagina van het gezondheidsdashboard
 
   Scenario: De patiënt kan succesvol zijn/haar medische informatie verwijderen
     Wanneer ik klik op het kruisje om mijn medische informatie te verwijderen
     Dan het berekende hospitalisatierisico wordt weergegeven als "Ongekend"
+    En er is geen toelichting beschikbaar
     En het dashboard toont de volgende melding: "Vervolledig je medische informatie om een toelichting te verkrijgen."

@@ -1,11 +1,8 @@
-import {Given, When, Then, Before, After} from "@badeball/cypress-cucumber-preprocessor";
+import {Given, When, Then, After} from "@badeball/cypress-cucumber-preprocessor";
 
-// After({tags: '@latest'}, async () => {
-//
-// });
-
-Given(/^De loginpagina van het gezondheidsdashboard$/, () => {
+Given(/^de loginpagina van het gezondheidsdashboard$/, () => {
     cy.visit("http://localhost:4200/#/login");
+    cy.contains(".text-black", "Inloggen");
 });
 
 Given(/^ik log in met mailadres "([^"]*)" en wachtwoord "([^"]*)"$/, (mailadres: string, wachtwoord: string) => {
@@ -46,7 +43,7 @@ When(/^ik vul mijn tabaksgebruik "([^"]*)" in$/, (tabak: string) => {
 });
 
 When(/^de berekende leeftijd is "([^"]*)" jaar oud$/, (leeftijd: string) => {
-    cy.contains("table.ng-star-inserted > tr:nth-child(2) > td:nth-child(1)", leeftijd);
+    cy.contains("td", leeftijd);
 });
 
 When(/^de body mass index is "([^"]*)"$/, (bmi: string) => {
@@ -75,4 +72,16 @@ When(/^ik ga naar het formulier waar ik ziektes kan toevoegen$/, () => {
 
 Then(/^ik selecteer "([^"]*)" als een ziekte$/, (ziekte: string) => {
     cy.get("#disease").select(ziekte);
+});
+
+Then(/^de ziekte "([^"]*)" is zichtbaar op de hoofdpagina van het gezondheidsdashboard$/, (ziekte: string) => {
+    cy.contains("div", ziekte);
+});
+
+When(/^ik op het kruisje klik naast de naam van de ziekte$/, () => {
+    cy.get("body > app-root > app-dashboard > div > div > div > div.col-lg-7 > div > app-diseases-box > div > div:nth-child(2) > div > div > i").click();
+});
+
+Then(/^geen enkele ziekte is nog zichtbaar op de hoofdpagina van het gezondheidsdashboard$/, () => {
+    cy.contains("span", "Je hebt momenteel geen chronische ziektes geregistreerd.");
 });

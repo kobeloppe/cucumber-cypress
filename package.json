@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^13.0.3",
+    "@cucumber/cucumber": "^8.8.0",
     "@cypress/webpack-preprocessor": "^5.15.1",
     "cypress": "^10.11.0",
     "ts-loader": "^9.4.1",

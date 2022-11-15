@@ -49,3 +49,19 @@ Then(/^krijg ik een foutmelding dat het gegeven wachtwoord incorrect is$/, funct
 Then(/^dan kan ik het formulier niet bevestigen$/, () => {
     cy.get("button.confirm").should("be.disabled");
 });
+
+When(/^ik klik op uitloggen$/, () => {
+    cy.get("#log-out").click();
+});
+
+Then(/^ik word doorwezen naar een pagina waarop ik moet bevestigen dat ik wil uitloggen$/, () => {
+    cy.contains(".text-black", "Uitloggen");
+});
+
+Then(/^ik ben uitgelogd en ik zie opnieuw de inlogpagina$/, () => {
+    cy.contains(".text-black", "Inloggen");
+});
+
+Then(/^er is geen toelichting beschikbaar$/, () => {
+    cy.contains("span", "Vervolledig je medische informatie om een toelichting te verkrijgen.")
+});
