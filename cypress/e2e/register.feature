@@ -1,25 +1,26 @@
-Feature: Register a patient
+# language: nl
+Functionaliteit: Registreer een patiënt
 
-  Scenario: A patient can successfully register
-    Given The register page of the health dashboard
-    When I register a new patient with a random email address and a password
-    And I confirm the form
-    Then I will be forwarded to the main page of the health dashboard
-    And I am authenticated
-    And the calculated hospitalisation risk will be shown as "Ongekend"
-    And the dashboard feedback is "Vervolledig je medische informatie om een toelichting te verkrijgen."
+  Scenario: Een patient kan zich succesvol registreren
+    Gegeven de registratiepagina van het gezondheidsdashboard
+    Wanneer ik een nieuwe patiënt registreer met een gegeven mailadres en wachtwoord
+    En ik bevestig het formulier
+    Dan ik word doorwezen naar de hoofdpagina van het gezondheidsdashboard
+    En dan ben ik geauthenticeerd
+    En het berekende hospitalisatierisico wordt weergegeven als "Ongekend"
+    En het dashboard toont de volgende melding: "Vervolledig je medische informatie om een toelichting te verkrijgen."
 
-  Scenario: A patient with invalid email address cannot successfully register
-    Given The register page of the health dashboard
-    When I register a new patient with email address "kobe" and password "azerty"
-    Then I get an error that specifies that the given email address is incorrect
-    And I cannot confirm the form
+  Scenario: Een patiënt met een ongeldig mailadres kan zich niet succesvol registreren
+    Gegeven de registratiepagina van het gezondheidsdashboard
+    Wanneer ik een nieuwe patiënt registreer met mailadres "kobe" en wachtwoord "azerty"
+    Dan krijg ik een foutmelding dat het gegeven mailadres incorrect is
+    En dan kan ik het formulier niet bevestigen
 
-  Scenario: A patient with short password cannot successfully register
-    Given The register page of the health dashboard
-    When I register a new patient with email address "kobe@mail.com" and password "t"
-    Then I get an error that specifies that the given password is too short
-    And I cannot confirm the form
+  Scenario: Een patiënt met een wachtwoord korter dan 6 karakters kan zich niet succesvol registreren
+    Gegeven de registratiepagina van het gezondheidsdashboard
+    Wanneer ik een nieuwe patiënt registreer met mailadres "kobe@mail.com" en wachtwoord "azert"
+    Dan krijg ik een foutmelding dat het gegeven wachtwoord incorrect is
+    En dan kan ik het formulier niet bevestigen
 
 
 

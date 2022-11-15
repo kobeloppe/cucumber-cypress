@@ -4,75 +4,75 @@ import {Given, When, Then, Before, After} from "@badeball/cypress-cucumber-prepr
 //
 // });
 
-Given(/^I want to edit my medical information$/, () => {
-    cy.get("#modify-medical-information").click();
-});
-
-Given(/^I go to a form in which I can specify my medical information$/, () => {
-    cy.contains("div.text-black", "Medische informatie");
-});
-
-When(/^I fill in my birth date "([^"]*)"$/, (birthDate: string) => {
-    cy.get("#birthdate").clear().type(birthDate);
-});
-
-When(/^I fill in my sex "([^"]*)"$/, (sex: string) => {
-    cy.get("#sex").select(sex);
-});
-
-When(/^I fill in my ethnicity "([^"]*)"$/, (ethnicity: string) => {
-    cy.get("#ethnicity").select(ethnicity);
-});
-
-When(/^I fill in my height "([^"]*)" m$/, (height: string) => {
-    cy.get("#height").clear().type(height);
-});
-
-When(/^I fill in my weight "([^"]*)" kg$/, (weight: string) => {
-    cy.get("#weight").clear().type(weight);
-});
-
-When(/^I fill in my tobacco use "([^"]*)"$/, (tobaccoUse: string) => {
-    cy.get("#tobacco").select(tobaccoUse);
-});
-
-Given(/^The login page of the health dashboard$/, () => {
+Given(/^De loginpagina van het gezondheidsdashboard$/, () => {
     cy.visit("http://localhost:4200/#/login");
 });
 
-Given(/^I log in with email address "([^"]*)" and password "([^"]*)"$/, (email: string, password: string) => {
-    cy.get("#email").type(email);
-    cy.get("#password").type(password);
+Given(/^ik log in met mailadres "([^"]*)" en wachtwoord "([^"]*)"$/, (mailadres: string, wachtwoord: string) => {
+    cy.get("#email").type(mailadres);
+    cy.get("#password").type(wachtwoord);
 });
 
-Then(/^I get an error that specifies that the given height is invalid$/, () => {
-    cy.contains(".input-error", "Vul een geldige lengte in.");
+When(/^ik medische informatie wil wijzigen$/, () => {
+    cy.get("#modify-medical-information").click();
 });
 
-Then(/^I get an error that specifies that the given weight is invalid$/, () => {
-    cy.contains(".input-error", "Vul een geldig gewicht in.");
+When(/^ik ga naar het formulier waar ik medische informatie kan toevoegen$/, () => {
+    cy.contains("div.text-black", "Medische informatie");
 });
 
-Then(/^the calculated age is "([^"]*)" years old$/, (age: string) => {
-    cy.contains("table.ng-star-inserted > tr:nth-child(2) > td:nth-child(1)", age);
+When(/^ik vul mijn geboortedatum "([^"]*)" in$/, (geboortedatum: string) => {
+    cy.get("#birthdate").clear().type(geboortedatum);
 });
 
-Then(/^the body mass index is "([^"]*)"$/, (bmi: string) => {
+When(/^ik vul mijn geslacht "([^"]*)" in$/, (geslacht: string) => {
+    cy.get("#sex").select(geslacht);
+});
+
+When(/^ik vul mijn ethniciteit "([^"]*)" in$/, (ethniciteit: string) => {
+    cy.get("#ethnicity").select(ethniciteit);
+});
+
+When(/^ik vul mijn lengte "([^"]*)" m in$/, (lengte: string) => {
+    cy.get("#height").clear().type(lengte);
+});
+
+When(/^ik vul mijn gewicht "([^"]*)" kg in$/, (gewicht: string) => {
+    cy.get("#weight").clear().type(gewicht);
+});
+
+When(/^ik vul mijn tabaksgebruik "([^"]*)" in$/, (tabak: string) => {
+    cy.get("#tobacco").select(tabak);
+});
+
+When(/^de berekende leeftijd is "([^"]*)" jaar oud$/, (leeftijd: string) => {
+    cy.contains("table.ng-star-inserted > tr:nth-child(2) > td:nth-child(1)", leeftijd);
+});
+
+When(/^de body mass index is "([^"]*)"$/, (bmi: string) => {
     cy.contains(".value", bmi);
 });
 
-When(/^I want to edit my diseases information$/, () => {
+When(/^ik klik op het kruisje om mijn medische informatie te verwijderen$/, () => {
+    cy.get("#remove-medical-information").click();
+});
+
+Then(/^krijg ik een foutmelding dat de gegeven lengte incorrect is$/, () => {
+    cy.contains(".input-error", "Vul een geldige lengte in.");
+});
+
+Then(/^krijg ik een foutmelding dat het gegeven gewicht incorrect is$/, () => {
+    cy.contains(".input-error", "Vul een geldig gewicht in.");
+});
+
+When(/^ik een ziekte wil toevoegen$/, () => {
     cy.get("#modify-diseases").click();
 });
 
-When(/^I go to a form in which I can specify my diseases$/, () => {
-    cy.contains(".text-black", "Voeg ziekte toe")
+When(/^ik ga naar het formulier waar ik ziektes kan toevoegen$/, () => {
+    cy.contains(".text-black", "Voeg ziekte toe");
 });
 
-When(/^I select "([^"]*)" as a disease$/, (disease: string) => {
-    cy.get("#disease").select(disease);
-});
-
-When(/^I click on the cross in order to remove my medical information$/, () => {
-    cy.get("#remove-medical-information").click();
+Then(/^ik selecteer "([^"]*)" als een ziekte$/, (ziekte: string) => {
+    cy.get("#disease").select(ziekte);
 });
