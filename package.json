@@ -1,14 +1,11 @@
 {
   "name": "cucumber-cypress",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "npx cypress open",
-    "test": "npx cypress open"
+    "test": "npx cypress run"
   },
   "author": "Kobe Loppe",
-  "license": "ISC",
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^13.0.3",
     "@cucumber/cucumber": "^8.8.0",
@@ -22,6 +19,13 @@
     "nonGlobalStepDefinitions": true,
     "stepDefinitions": [
       "cypress/e2e/**/**.ts"
-    ]
+    ],
+    "json": {
+      "enabled": true,
+      "formatter": "./cucumber-json-formatter"
+    },
+    "html": {
+      "enabled": true
+    }
   }
 }

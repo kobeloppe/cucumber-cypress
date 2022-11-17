@@ -1,4 +1,5 @@
 import {Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
+import {DataTable} from "@cucumber/cucumber";
 
 Given(/^de loginpagina van het gezondheidsdashboard$/, () => {
     cy.visit("http://localhost:4200/#/login");
@@ -16,6 +17,22 @@ When(/^ik medische informatie wil wijzigen$/, () => {
 
 When(/^ik ga naar het formulier waar ik medische informatie kan toevoegen$/, () => {
     cy.contains("div.text-black", "Medische informatie");
+});
+
+When(/^ik vul de onderstaande medische gegevens in$/, (table: DataTable) => {
+    const data = table.transpose().rowsHash();
+    const geboortedatum = data["geboortedatum"];
+    const geslacht = data["geslacht"];
+    const ethniciteit = data["ethniciteit"];
+    const lengte = data["lengte"];
+    const gewicht = data["gewicht"];
+    const tabaksgebruik = data["tabaksgebruik"];
+    cy.get("#birthdate").clear().type(geboortedatum);
+    cy.get("#sex").select(geslacht);
+    cy.get("#ethnicity").select(ethniciteit);
+    cy.get("#height").clear().type(lengte);
+    cy.get("#weight").clear().type(gewicht);
+    cy.get("#tobacco").select(tabaksgebruik);
 });
 
 When(/^ik vul mijn geboortedatum "([^"]*)" in$/, (geboortedatum: string) => {
@@ -38,8 +55,8 @@ When(/^ik vul mijn gewicht "([^"]*)" kg in$/, (gewicht: string) => {
     cy.get("#weight").clear().type(gewicht);
 });
 
-When(/^ik vul mijn tabaksgebruik "([^"]*)" in$/, (tabak: string) => {
-    cy.get("#tobacco").select(tabak);
+When(/^ik vul mijn tabaksgebruik "([^"]*)" in$/, (tabaksgebruik: string) => {
+    cy.get("#tobacco").select(tabaksgebruik);
 });
 
 When(/^de berekende leeftijd is "([^"]*)" jaar oud$/, (leeftijd: string) => {

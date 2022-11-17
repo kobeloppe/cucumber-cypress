@@ -246,3 +246,9 @@ dist
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/node,intellij+all,visualstudiocode
+
+/cypress/screenshots/
+/cypress/videos/
+/cucumber-report.html
+/cucumber-report.json
+/cucumber-messages.ndjson

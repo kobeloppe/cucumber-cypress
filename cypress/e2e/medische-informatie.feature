@@ -11,12 +11,9 @@ Functionaliteit: Medische informatie
   Scenario: De patiënt kan succesvol medische informatie toevoegen
     Wanneer ik medische informatie wil wijzigen
     En ik ga naar het formulier waar ik medische informatie kan toevoegen
-    En ik vul mijn geboortedatum "1998-11-19" in
-    En ik vul mijn geslacht "Mannelijk" in
-    En ik vul mijn ethniciteit "Kaukasisch" in
-    En ik vul mijn lengte "1.85" m in
-    En ik vul mijn gewicht "80" kg in
-    En ik vul mijn tabaksgebruik "Nee" in
+    En ik vul de onderstaande medische gegevens in
+      | geboortedatum | geslacht  | ethniciteit | lengte | gewicht | tabaksgebruik |
+      | 1998-11-19    | Mannelijk | Kaukasisch  | 1.85   | 80      | Nee           |
     En ik bevestig het formulier
     Dan ik word doorwezen naar de hoofdpagina van het gezondheidsdashboard
     En het berekende hospitalisatierisico wordt weergegeven als "Laag"
