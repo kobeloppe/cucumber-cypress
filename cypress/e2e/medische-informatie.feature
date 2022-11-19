@@ -18,14 +18,14 @@ Functionaliteit: Medische informatie
     Dan ik word doorwezen naar de hoofdpagina van het gezondheidsdashboard
     En het berekende hospitalisatierisico wordt weergegeven als "Laag"
     En het dashboard toont de volgende melding: "Je COVID-hospitalisatierisico met bijhorende toelichting is succesvol berekend."
-    En de berekende leeftijd is "23" jaar oud
-    En de body mass index is "23.4"
+    En de berekende leeftijd is 25 jaar oud
+    En de body mass index is 23.4
 
   Scenario: De patiënt kan niet succesvol zijn/haar lengte en gewicht wijzigen
     Wanneer ik medische informatie wil wijzigen
     En ik ga naar het formulier waar ik medische informatie kan toevoegen
     En ik vul mijn lengte "2.51" m in
-    En ik vul mijn gewicht "251" kg in
+    En ik vul mijn gewicht 251 kg in
     Dan krijg ik een foutmelding dat de gegeven lengte incorrect is
     En krijg ik een foutmelding dat het gegeven gewicht incorrect is
 
@@ -34,13 +34,13 @@ Functionaliteit: Medische informatie
     En ik ga naar het formulier waar ik medische informatie kan toevoegen
     En ik vul mijn geboortedatum "1950-11-19" in
     En ik vul mijn lengte "1.60" m in
-    En ik vul mijn gewicht "130" kg in
+    En ik vul mijn gewicht 130 kg in
     En ik bevestig het formulier
     Dan ik word doorwezen naar de hoofdpagina van het gezondheidsdashboard
     En het berekende hospitalisatierisico wordt weergegeven als "Medium"
     En het dashboard toont de volgende melding: "Je COVID-hospitalisatierisico met bijhorende toelichting is succesvol berekend."
-    En de berekende leeftijd is "71" jaar oud
-    En de body mass index is "50.8"
+    En de berekende leeftijd is 72 jaar oud
+    En de body mass index is 50.8
 
   Scenario: De patiënt kan succesvol een ziekte toevoegen
     Wanneer ik een ziekte wil toevoegen

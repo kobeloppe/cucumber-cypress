@@ -51,19 +51,19 @@ When(/^ik vul mijn lengte "([^"]*)" m in$/, (lengte: string) => {
     cy.get("#height").clear().type(lengte);
 });
 
-When(/^ik vul mijn gewicht "([^"]*)" kg in$/, (gewicht: string) => {
-    cy.get("#weight").clear().type(gewicht);
+When(/^ik vul mijn gewicht (\d+) kg in$/, (gewicht: number) => {
+    cy.get("#weight").clear().type(gewicht.toString());
 });
 
 When(/^ik vul mijn tabaksgebruik "([^"]*)" in$/, (tabaksgebruik: string) => {
     cy.get("#tobacco").select(tabaksgebruik);
 });
 
-When(/^de berekende leeftijd is "([^"]*)" jaar oud$/, (leeftijd: string) => {
+When(/^de berekende leeftijd is (\d+) jaar oud$/, (leeftijd: number) => {
     cy.contains("td", leeftijd);
 });
 
-When(/^de body mass index is "([^"]*)"$/, (bmi: string) => {
+Then(/^de body mass index is (\d+)\.(\d+)$/, (bmi: number) => {
     cy.contains(".value", bmi);
 });
 
