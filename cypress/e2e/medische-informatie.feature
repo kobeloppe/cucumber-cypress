@@ -18,7 +18,7 @@ Functionaliteit: Medische informatie
     Dan ik word doorwezen naar de hoofdpagina van het gezondheidsdashboard
     En het berekende hospitalisatierisico wordt weergegeven als "Laag"
     En het dashboard toont de volgende melding: "Je COVID-hospitalisatierisico met bijhorende toelichting is succesvol berekend."
-    En de berekende leeftijd is 25 jaar oud
+    En de berekende leeftijd is 24 jaar oud
     En de body mass index is 23.4
 
   Scenario: De patiënt kan niet succesvol zijn/haar lengte en gewicht wijzigen
@@ -46,7 +46,6 @@ Functionaliteit: Medische informatie
     Wanneer ik een ziekte wil toevoegen
     En ik ga naar het formulier waar ik ziektes kan toevoegen
     En ik selecteer "Astma" als een ziekte
-    En ik bevestig het formulier
     Dan ik word doorwezen naar de hoofdpagina van het gezondheidsdashboard
     En het berekende hospitalisatierisico wordt weergegeven als "Hoog"
     En de ziekte "Astma" is zichtbaar op de hoofdpagina van het gezondheidsdashboard
